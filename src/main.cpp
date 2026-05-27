@@ -1,21 +1,15 @@
 #include <SFML/Graphics.hpp>
 
+#include "game.hpp"
+
+
+const char _font_location[] = "/home/arnab/CodeAyan/pong/src/roboto.ttf";
+
 int main()
 {
-	sf::RenderWindow window( sf::VideoMode( { 200, 200 } ), "SFML works!" );
-	sf::CircleShape shape( 100.f );
-	shape.setFillColor( sf::Color::Green );
-
-	while ( window.isOpen() )
-	{
-		while ( const std::optional event = window.pollEvent() )
-		{
-			if ( event->is<sf::Event::Closed>() )
-				window.close();
-		}
-
-		window.clear();
-		window.draw( shape );
-		window.display();
-	}
+	Game pong;
+	pong.run();
+	return 0;
 }
+
+// cmake -B build && cmake --build build
